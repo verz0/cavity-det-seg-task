@@ -8,7 +8,7 @@ The final implemented approach involves (main-yolo.ipynb) :
    
       Reference: https://pubmed.ncbi.nlm.nih.gov/36639724/
 3.  **CLAHE Enhancement:** Contrast Limited Adaptive Histogram Equalization (CLAHE) was added as an optional preprocessing step before cropping to potentially enhance the visibility of cavities in the X-rays.
-4.  **YOLOv8 Segmentation Model:** The `yolov8-seg` models were fine-tuned on the generated cropped image patches. YOLOv8-seg predicts both bounding boxes and segmentation masks simultaneously.
+4.  **YOLOv8 Segmentation Model:** The `yolo-seg` models were fine-tuned on the generated cropped image patches. YOLO-seg predicts both bounding boxes and segmentation masks simultaneously.
 5.  **Training:** The model was trained using the Ultralytics framework, with hyperparameters like learning rate, batch size, and epochs tuned through experimentation. Early stopping was used to prevent severe overfitting.
 6.  **Evaluation:**
     * Standard YOLOv8 validation metrics (mAP50, mAP50-95 for box and mask) were calculated on the *cropped* validation set.

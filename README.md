@@ -21,7 +21,7 @@ The final implemented approach involves (main-yolo.ipynb) :
 Several challenges were encountered during the task:
 
 1.  **Initial Poor Performance:** Training standard YOLOv8 models directly on the full X-ray images yielded very low mAP scores, indicating that a more tailored approach was needed.
-2.  **Small Dataset Size:** Working with ~300 images (further reduced after filtering images without cavities) made the models prone to overfitting and sensitive to parameter changes.
+2.  **Small Dataset Size:** Working with ~300 images made the models prone to overfitting and sensitive to parameter changes.
 3.  **Overfitting & Performance Plateau:** Even with CCS and larger models (`yolov8l-seg`), the validation performance plateaued relatively early during training (e.g., around epoch 150). While early stopping prevented severe overfitting, it indicated a limit in the model's ability to generalize further with the given data and configuration.
 4.  **Low Precision (mAP50-95 / Boundary Accuracy):** While the CCS approach significantly improved detection (mAP50 reaching ~0.5), achieving high precision in segmenting the exact cavity boundaries remained difficult, reflected in persistently low mAP50-95 scores (~0.20-0.25). This could be due to subtle cavity features or limitations in mask annotation precision. The main bottlenecck was the small dataset size
 5.  **Inaccurate Initial Labels:** The project had access to pre-existing `.txt` bounding box labels which were found to be inaccurate upon visual inspection during EDA, necessitating the use of the masks as the primary source of ground truth and deriving training data from them.

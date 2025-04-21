@@ -2,7 +2,7 @@
 
 ## Approach Overview
 
-The final implemented approach involves:
+The final implemented approach involves (main-yolo.ipynb) :
 
 1.  **Centroid Cropping and Sampling (CCS):** A preprocessing step where square patches are extracted around the centroid of cavity regions identified from the accurate ground truth masks. This focuses the model on relevant areas.
    
@@ -14,6 +14,8 @@ The final implemented approach involves:
     * Standard YOLOv8 validation metrics (mAP50, mAP50-95 for box and mask) were calculated on the *cropped* validation set.
 7.  **Experiment Tracking:** Weights & Biases (`wandb`) was integrated to log hyperparameters, track metrics across runs, and visualize results.
 
+## Model Report: https://api.wandb.ai/links/pirajesh1/o386zzk2
+
 ## Challenges Faced
 
 Several challenges were encountered during the task:
@@ -24,7 +26,7 @@ Several challenges were encountered during the task:
 4.  **Low Precision (mAP50-95 / Boundary Accuracy):** While the CCS approach significantly improved detection (mAP50 reaching ~0.5), achieving high precision in segmenting the exact cavity boundaries remained difficult, reflected in persistently low mAP50-95 scores (~0.20-0.25). This could be due to subtle cavity features or limitations in mask annotation precision. The main bottlenecck was the small dataset size
 5.  **Inaccurate Initial Labels:** The project had access to pre-existing `.txt` bounding box labels which were found to be inaccurate upon visual inspection during EDA, necessitating the use of the masks as the primary source of ground truth and deriving training data from them.
 
-Performance varied between the two approaches.
+Performance varied between the two approaches (main-yolo.ipynb and mask-rcnn.ipynb).
 
 * **YOLOv8-seg (Nano) with CCS (512x512 Crops):** 
     * Box mAP50-95: 0.2590
